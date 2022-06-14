@@ -33,4 +33,10 @@ class m_produk extends CI_Model {
         $this->db->where('username',$username);
         return $this->db->get('produk')->num_rows();
     }
+
+    public function get_produkbykw($search){
+        $this->db->like('nama_produk', $search);
+        $query = $this->db->get('produk');
+        return $query->result();
+    }
 }

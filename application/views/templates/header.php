@@ -39,13 +39,18 @@
             <div class="hidden w-full md:block md:w-auto" id="mobile-menu">
                 <ul class="flex flex-col items-center mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
                     <li>
-                        <input type="text" id="name" class="border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white" placeholder="search" required="">
+                        <form method="post" action="<?= base_url("home/search"); ?>">
+                            <input type="text" name="search" class="border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white" placeholder="search" required="">
+                        </form>
                     </li>
                     <li>
                         <a href="<?= base_url('home'); ?>" class="block py-2 pr-4 pl-3 md:hover:bg-transparent md:border-0 md:p-0 text-gray-400 md:hover:text-white hover:bg-gray-700 hover:text-white border-gray-700">Beranda</a>
                     </li>
                     <li>
                         <a href="#" class="block py-2 pr-4 pl-3 md:hover:bg-transparent md:border-0 md:p-0 text-gray-400 md:hover:text-white hover:bg-gray-700 hover:text-white border-gray-700">Kategori</a>
+                    </li>
+                    <li>
+                        <a href="<?= base_url('home/pesanan'); ?>" class="block py-2 pr-4 pl-3 md:hover:bg-transparent md:border-0 md:p-0 text-gray-400 md:hover:text-white hover:bg-gray-700 hover:text-white border-gray-700">Pesanan</a>
                     </li>
                     <div id="dropdownNavbar" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
                         <ul class="py-1 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">

@@ -1,14 +1,17 @@
-<div class="mt-3 py-4 px-3 bg-gray-50 rounded dark:bg-gray-800">
+<div class="my-6">
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">Keranjang Belanja</h5>
+</div>
+<div class=" py-4 px-3 bg-gray-50 rounded dark:bg-gray-800">
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                 <?php echo form_open('home/update'); ?>
                 <table class="w-full text-lg text-left text-gray-500 dark:text-gray-400">
-                <tr>
+                <thead class="text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <th scope="col" class="px-6 py-3">QTY</th>
                         <th scope="col" class="px-6 py-3">Nama Produk</th>
                         <th scope="col" class="px-6 py-3" style="text-align:right">Harga</th>
                         <th scope="col" class="px-6 py-3" style="text-align:right">Sub-Total</th>
                         <th scope="col" class="px-6 py-3">Delete</th>
-                </tr>
+                </thead>
                 <?php $i = 1; ?>
 
                 <?php foreach ($this->cart->contents() as $items): ?>
@@ -42,6 +45,6 @@
 
                 </table>
                 <button class="ml-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="submit">Update Cart</button>
-                <a href="" class="ml-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-blue-800">Check Out</a>
+                <a href="<?= base_url('home/checkout'); ?>" class="ml-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-blue-800">Check Out</a>
         </div>
 </div>

@@ -6,6 +6,7 @@ class penjual extends CI_Controller {
         parent::__construct();
         $this->load->model('m_produk');
         $this->load->model('m_kategori');
+        $this->load->model('m_transaksi');
     }
 
     public function index()
@@ -130,8 +131,39 @@ class penjual extends CI_Controller {
     {
         $data['judul'] = 'penjual';
         $data['username'] = $this->session->userdata('username');
+
+        $transaksi = new m_transaksi;
+        $data['transaksi'] = $transaksi->get_transaksipenjual($data['username']);
+        $detail_transaksi = new m_transaksi;
+        $data['detail_transaksi'] = $detail_transaksi->get_detailtransaksi($data['username']);
+
         $this->load->view('templates/head', $data);
         $this->load->view('dashboard/penjual');
         $this->load->view('penjual/penjualan');
+    }
+
+    public function detailtransaksi($no_order)
+    {
+        $data['judul'] = 'penjual';
+        $data['username'] = $this->session->userdata('username');
+
+        $transaksi = new m_transaksi;
+        $data['transaksi'] = $transaksi->get_transaksibyno($no_order);
+        $detail_transaksi = new m_transaksi;
+        $data['detail_transaksi'] = $detail_transaksi->get_detailtransaksibyno($no_order);
+
+        $this->load->view('templates/head',$data);
+        $this->load->view('dashboard/penjual');
+        $this->load->view('penjual/detailtransaksi');
+    }
+
+    public function sudahbayar($no_order)
+    {   
+        $data = [
+            'status' => 1
+        ];
+        $this->db->set($data);
+        $this->m_transaksi->sudahbayar($no_order);
+        redirect('penjual/penjualan');
     }
 }
